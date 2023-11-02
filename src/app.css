@@ -584,14 +584,117 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.flex {
+  display: flex;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-1\/4 {
+  width: 25%;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-1\/6 {
+  width: 16.666667%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 * {
   border: 0;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: black;
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 
@@ -601,4 +704,76 @@ body, html {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  /* display: flex; */
+  /* justify-content: center;
+    align-items: center; */
+}
+
+.App {
+  height: 100%;
+  position: relative;
+}
+
+/* header  */
+
+header {
+  padding: 20px;
+  height: auto;
+  position: absolute;
+}
+
+.logo {
+  background-image: url(../public/dexLogo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
+  width: 180px;
+}
+
+.search {
+  height: 100px;
+  width: 100px;
+}
+
+/* main list page  */
+
+.bodyDiv {
+  height: 100%;
+  padding-top: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.listBody {
+  background-color: red;
+  border-radius: 10px;
+  height: 85%;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screenDiv {
+  height: 90%;
+  width: 90%;
+  background-color: #313129;
+  border-radius: 10px;
+}
+
+.dex {
+  height: 80%;
+  width: 40%;
+  background-color: red;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 2px 20px black;
+}
+
+.dexScreen {
+  background-color: black;
+  height: 45%;
+  width: 85%;
 }

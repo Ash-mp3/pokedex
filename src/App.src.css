@@ -7,9 +7,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: black;
 }
 
-body, html {
+body,
+html {
     height: 100%;
 }
 
@@ -19,10 +21,65 @@ body, html {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.App {
+    height: 100%;
+    position: relative;
+}
+
+/* header  */
+
+header {
+    padding: 20px;
+    height: auto;
+    position: absolute;
+}
+
+.logo {
+    background-image: url(../public/dexLogo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px; 
+    width: 180px;
+}
+
+.search {
+    height: 100px; 
+    width: 100px;
+}
+
+/* main list page  */
+
+.bodyDiv {
+    height: 100%;
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.listBody {
+    background-color: red;
+    border-radius: 10px;
+    height: 85%;
+    width: 65%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.screenDiv {
+    height: 90%;
+    width: 90%;
+    background-color: #313129;
+    border-radius: 10px;
+}
+
+
 
 .dex {
     height: 80%;
@@ -39,5 +96,4 @@ body, html {
     background-color: black;
     height: 45%;
     width: 85%;
-
 }
