@@ -1,6 +1,5 @@
 import PokemonCard from './PokemonCard';
 import "./App.src.css";
-// link to main css file
 
 function App() {
   return (
@@ -12,10 +11,8 @@ function App() {
         </div>
       </header>
       <div className="bodyDiv">
-        <div className="listBody">
-          <div className="screenDiv">
-            <PokemonCard />
-          </div>
+        <div className="listBody lg:w-3/4">
+          <PokemonCard />
         </div>
       </div>
     </div>
