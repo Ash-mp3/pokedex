@@ -1,19 +1,39 @@
-import PokemonCard from './PokemonCard';
+import PokeList from "./components/PokeList";
+import Header from "./components/header";
+import { useState, useEffect } from "react";
 import "./App.src.css";
 
 function App() {
+  const [pokes, setpokes] = useState([]);
+
+  useEffect(() => {
+    const FetchAllPokemon = async () => {
+      const pokesApi = await fetch(
+        "https://pokeapi.co/api/v2/pokemon?limit=151"
+      ).then((res) => res.json());
+      FetchPokemon(pokesApi.results);
+    };
+    const FetchPokemon = async (pokesApi) => {
+      let urls = [];
+      pokesApi.map((elem) => {
+        return urls.push(elem.url);
+      });
+      const pokemonData = await Promise.all(
+        urls.map((elem) => {
+          return fetch(elem).then((res) => res.json());
+        })
+      );
+      setpokes(pokemonData);
+      console.log(pokemonData);
+    };
+    FetchAllPokemon();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="header w-full flex justify-between">
-        <div className="logo h-full  w-1/6"></div>
-        <div className="search flex items-center justify-center w-12">
-          <i className="fa-solid fa-magnifying-glass text-3xl"></i>
-        </div>
-      </header>
-      <div className="bodyDiv">
-        <div className="listBody lg:w-3/4">
-          <PokemonCard />
-        </div>
+    <div className="App h-full">
+      <Header />
+      <div className="bodyDiv h-full flex justify-center items-center">
+        <PokeList pokes={pokes} />
       </div>
     </div>
   );
