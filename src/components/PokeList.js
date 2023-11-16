@@ -1,29 +1,34 @@
-import "../App.src.css";
+import { useContext, useReducer } from "react";
+import { PokeListContext } from "./PokeContext";
 import PokeCards from "./PokeCards";
-import Dex from "./Dex";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function PokeList({ pokes }) {
-  const PokeListCom = () => {
-    return (
-      <div className="listBody lg:w-3/4">
-        <div className="screenDiv w-11/12 md:w-4/5 xl:w-3/4">
-          {pokes.map((elem) => {
-            let pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${elem.id}.png`;
-            return (
-              <PokeCards elem={elem} img={pokeImg} key={elem.id} />
-            );
-          })}
-        </div>
-      </div>
-    );
+const PokeList = () => {
+  const { state, dispatch } = useContext(PokeListContext);
+  
+  const updateCurrentPoke = (pokeId) => {
+    dispatch({ type: "Set_Curr_Poke", payload: pokeId });
+    console.log(pokeId);
   };
+  console.log(state.currentPoke);
   return (
-    <Router>
-      <Routes>
-        <Route path="/" Component={PokeListCom} />
-        <Route path="Dex" element={<Dex />} />
-      </Routes>
-    </Router>
+    <div className="listBody lg:w-3/4">
+      <div className="screenDiv w-11/12 md:w-4/5 xl:w-3/4">
+        {state.pokes.map((poke) => {
+          return (
+            <Link
+              to={`/Dex`}
+              key={poke.id}
+              onClick={() => {
+                updateCurrentPoke(poke);
+              }}
+            >
+              <PokeCards poke={poke} />
+            </Link>
+          );
+        })}
+      </div>
+    </div>
   );
-}
+};
+export default PokeList;
