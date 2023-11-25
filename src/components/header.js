@@ -5,7 +5,7 @@ import Search from "./Search";
 function Header() {
   return (
     <header className="header w-full flex justify-between">
-      <Link to="/">
+      <Link to="/PokeList">
         <img className="logo" src={dexLogo} alt="dex logo" />
       </Link>
 

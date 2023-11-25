@@ -11,7 +11,7 @@ const App = () => {
         <Header />
         <div className="bodyDiv h-full flex justify-center items-center">
           <Routes>
-            <Route path="/" element={<PokeList />} />
+            <Route path="/PokeList" element={<PokeList />} />
             <Route path="/Dex" element={<Dex />} />
           </Routes>
         </div>
