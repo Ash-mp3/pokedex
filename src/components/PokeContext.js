@@ -2,16 +2,20 @@ import React, { createContext, useEffect, useReducer } from "react";
 export const PokeListContext = createContext([]);
 
 const initialState = {
-  currentPoke: null,
-  pokes: [],
+  currentPoke: JSON.parse(localStorage.getItem("currentDexPoke")) ?? null,
+  pokeList: [],
+  currentPokeList: [],
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case "Set_Curr_Poke":
+      localStorage.setItem("currentDexPoke", JSON.stringify(action.payload));
       return { ...state, currentPoke: action.payload };
-    case "Update_Pokes":
-      return { ...state, pokes: action.payload };
+    case "Update_PokeList":
+      return { ...state, pokeList: action.payload };
+    case "Update_CurrentPokeList":
+      return { ...state, currentPokeList: action.payload };
     default:
       return state;
   }
@@ -30,7 +34,8 @@ const PokeProvider = ({ children }) => {
         const pokemonData = await Promise.all(
           pokemonUrls.map((url)=> fetch(url).then((res) => res.json()))
         );
-        dispatch({ type: "Update_Pokes", payload: pokemonData });
+        dispatch({ type: "Update_PokeList", payload: pokemonData });
+        dispatch({ type: "Update_CurrentPokeList", payload: pokemonData });
       } catch (error) {
         console.error("Error fetching Pokemon data:", error);
       }

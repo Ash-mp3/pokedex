@@ -7,8 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: black;
-    font-family: 'Gill Sans';
+    font-family: 'Pixelify Sans', sans-serif;;
 }
 
 body,
@@ -22,16 +21,17 @@ html {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    overflow: hidden;
 }
 
 /* header  */
 
 header {
-
     padding: 10px 35px;
     position: absolute;
     background-color: rgb(76, 76, 76, .4);
     backdrop-filter: blur(100px);
+    z-index: 2;
 }
 
 .logo {
@@ -44,7 +44,17 @@ header {
 
 .search {
     height: 65px;
-    width: 65px;
+    width: auto;
+}
+
+#searchImg {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.box {
+    display: flex;
+    align-items: flex-end;
 }
 
 /* main list page  */
@@ -90,6 +100,7 @@ header {
     height: 250px;
     margin: 10px;
     position: relative;
+    color: black;
 }
 
 .pokeCard p {
@@ -104,22 +115,24 @@ header {
     object-fit: contain;
 }
 
-/* ------------------------- */
+/* dex page  */
 
 .dex {
     background-color: #E72530;
     border: 3px solid black;
     border-radius: 50px;
-    height: 90%;
+    height: 110%;
     width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 3px 2px 20px black;
+    position: relative;
+    z-index: 0;
 }
 
 .dexScreenLinner {
-    height: 50%;
+    height: 65%;
     width: 85%;
     background-color: #DFDFDF;
     
@@ -131,15 +144,27 @@ header {
     height: 90%;
     width: 90%;
     padding: 10px;
+    overflow: hidden;
     
     
 }
 
 .dexScreen p {
     color: white;
+    
 }
 
-.cardDiv {
-    height: 100%;
+.dexDivider {
+    height: 7px;
+    background-color: black;
     width: 100%;
+    
+}
+
+.pokeInfo {
+    height: 50%;
+}
+
+.pokeAttacks {
+    height: 50%;
 }

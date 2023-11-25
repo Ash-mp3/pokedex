@@ -1,4 +1,4 @@
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import { PokeListContext } from "./PokeContext";
 import PokeCards from "./PokeCards";
 import { Link } from "react-router-dom";
@@ -8,15 +8,14 @@ const PokeList = () => {
   
   const updateCurrentPoke = (pokeId) => {
     dispatch({ type: "Set_Curr_Poke", payload: pokeId });
-    console.log(pokeId);
   };
-  console.log(state.currentPoke);
   return (
     <div className="listBody lg:w-3/4">
       <div className="screenDiv w-11/12 md:w-4/5 xl:w-3/4">
-        {state.pokes.map((poke) => {
+        {state.currentPokeList.map((poke) => {
           return (
             <Link
+              className="pokeCard w-full md:w-auto md:grow"
               to={`/Dex`}
               key={poke.id}
               onClick={() => {
