@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.7a541df0.css",
-    "main.js": "/static/js/main.e00405e3.js",
-    "static/media/bgImg.png": "/static/media/bgImg.4a50b99c9a3ffd4c204d.png",
-    "static/media/pokemon_mag.png": "/static/media/pokemon_mag.cf6cbbb8ba65f25c934d.png",
-    "static/media/dexLogo.png": "/static/media/dexLogo.c92028721639a0f918b9.png",
-    "index.html": "/index.html",
-    "main.7a541df0.css.map": "/static/css/main.7a541df0.css.map",
-    "main.e00405e3.js.map": "/static/js/main.e00405e3.js.map"
+    "main.css": "/pokedex/static/css/main.0c129a0b.css",
+    "main.js": "/pokedex/static/js/main.d2fea525.js",
+    "static/media/bgImg.png": "/pokedex/static/media/bgImg.4a50b99c9a3ffd4c204d.png",
+    "static/media/pokemon_mag.png": "/pokedex/static/media/pokemon_mag.cf6cbbb8ba65f25c934d.png",
+    "static/media/dexLogo.png": "/pokedex/static/media/dexLogo.c92028721639a0f918b9.png",
+    "index.html": "/pokedex/index.html",
+    "main.0c129a0b.css.map": "/pokedex/static/css/main.0c129a0b.css.map",
+    "main.d2fea525.js.map": "/pokedex/static/js/main.d2fea525.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a541df0.css",
-    "static/js/main.e00405e3.js"
+    "static/css/main.0c129a0b.css",
+    "static/js/main.d2fea525.js"
   ]
 }
