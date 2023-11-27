@@ -27,7 +27,7 @@ html {
 /* header  */
 
 header {
-    padding: 10px 35px;
+    /* padding: 10px 35px; */
     position: absolute;
     background-color: rgb(76, 76, 76, .4);
     backdrop-filter: blur(100px);
@@ -44,7 +44,7 @@ header {
 
 .search {
     height: 65px;
-    width: auto;
+    width: 200px;
 }
 
 #searchImg {
@@ -151,7 +151,23 @@ header {
 
 .dexScreen p {
     color: white;
-    
+}
+
+.name {
+    position: absolute;
+}
+
+.imgDiv {
+    position: relative;
+}
+
+.pokeImg {
+    object-fit: contain;
+}
+
+.pokeNum {
+    position: absolute;
+    bottom: 0;
 }
 
 .dexDivider {

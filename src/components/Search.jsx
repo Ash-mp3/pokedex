@@ -41,7 +41,7 @@ const Search = () => {
             </InputAdornment>
           ),
         }}
-        defaultValue="Normal"
+        placeholder="Search"
         variant="outlined"
         type="search"
         onKeyDown={handleSearch}
