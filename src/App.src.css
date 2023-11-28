@@ -7,7 +7,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Pixelify Sans', sans-serif;;
+    font-family: 'Pixelify Sans', sans-serif;
+    letter-spacing: .01rem;
 }
 
 body,
@@ -27,7 +28,6 @@ html {
 /* header  */
 
 header {
-    /* padding: 10px 35px; */
     position: absolute;
     background-color: rgb(76, 76, 76, .4);
     backdrop-filter: blur(100px);
@@ -44,7 +44,7 @@ header {
 
 .search {
     height: 65px;
-    width: 200px;
+    width: auto;
 }
 
 #searchImg {
