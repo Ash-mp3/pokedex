@@ -29,7 +29,6 @@ const PokeProvider = ({ children }) => {
       try {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
         const data = await response.json();
-        console.log(data)
         const pokemonUrls = data.results.map((pokemon) => pokemon.url);
         const pokemonData = await Promise.all(
           pokemonUrls.map((url)=> fetch(url).then((res) => res.json()))
