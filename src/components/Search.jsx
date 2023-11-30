@@ -15,40 +15,25 @@ const Search = () => {
   const [currType, setCurrType] = useState("");
   const [currSearch, setCurrSearch] = useState("");
 
-useEffect(() => {
-  nameSearch();
-}, [currSearch]);
+  useEffect(() => {
+    runSearch();
+  }, [currSearch, currType]);
 
-useEffect(() => {
-    typeSearch(); 
-}, [currType]);
-
-  const nameSearch = () => {
-    let currentPokeLists;
-    !currType ? currentPokeLists = state.pokeList : currentPokeLists = state.currentPokeList;
-
-    const re = new RegExp(`${currSearch}`, "i");
-    const newCurrPokeList = currentPokeLists.filter((poke) =>
-      re.test(poke.name)
-    );
-    if (newCurrPokeList.length !== 0) {
-      dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
-    } else {
-      dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
+  const runSearch = () => {
+    let newCurrPokeList = state.pokeList;
+    if (currType) {
+      const typeReg = new RegExp(`${currType}`);
+      newCurrPokeList = newCurrPokeList.filter((poke) => {
+        return poke.types.some((type) => typeReg.test(type.type.name));
+      });
     }
-    return newCurrPokeList;
-  };
-
-  const typeSearch = () => {
-    let currentPokeLists;
-    !currType ? currentPokeLists = nameSearch() : currentPokeLists = state.currentPokeList;
-
-    const re = new RegExp(`${currType}`);
-    const newCurrPokeList = currentPokeLists.filter((poke) => {
-      return poke.types.some((type) => re.test(type.type.name));
-    });
+    if (currSearch) {
+      const searchReg = new RegExp(`${currSearch}`, "i");
+      newCurrPokeList = newCurrPokeList.filter((poke) =>
+        searchReg.test(poke.name)
+      );
+    }
     dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
-    return newCurrPokeList
   };
 
   useEffect(() => {
@@ -69,16 +54,16 @@ useEffect(() => {
       <TextField
         label="Search Pokemon"
         placeholder="Search"
-        variant="outlined"
         type="search"
         onChange={(e) => {
           if (e.target.value === "") {
-            setCurrSearch("")
+            setCurrSearch("");
           }
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             setCurrSearch(e.target.value);
+            console.log(e.target.value);
           }
         }}
         InputProps={{
