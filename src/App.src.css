@@ -131,11 +131,29 @@ header {
     z-index: 0;
 }
 
+.dexCameraDiv {
+    height: auto;
+    margin: -15px 0 10px 0;
+    width: 80%;
+
+}
+
+.dexCamera {
+    height: 95px;
+    transform: scaleX(-1);
+}
+
+.dexMic {
+    height: 65px;
+    margin: 15px;
+}
+
 .dexScreenLinner {
     height: 65%;
     width: 85%;
     background-color: #DFDFDF;
-    
+    border: 2px solid black;
+
 }
 
 .dexScreen {
@@ -145,8 +163,8 @@ header {
     width: 90%;
     padding: 10px;
     overflow: hidden;
-    
-    
+
+
 }
 
 .dexScreen p {
@@ -174,7 +192,7 @@ header {
     height: 7px;
     background-color: black;
     width: 100%;
-    
+
 }
 
 .pokeInfo {

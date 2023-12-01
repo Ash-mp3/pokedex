@@ -596,12 +596,43 @@ video {
   top: -10px;
 }
 
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mx-12 {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
 
 .mt-7 {
   margin-top: 1.75rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-12 {
+  margin-top: 3rem;
+}
+
+.mt-16 {
+  margin-top: 4rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .block {
@@ -614,6 +645,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .w-1 {
@@ -638,6 +673,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .flex-grow {
@@ -668,6 +707,22 @@ video {
   gap: 1.25rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-20 {
+  gap: 5rem;
+}
+
+.gap-40 {
+  gap: 10rem;
+}
+
 .self-center {
   align-self: center;
 }
@@ -684,6 +739,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .text-3xl {
@@ -704,6 +763,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .filter {
@@ -840,10 +904,28 @@ header {
   z-index: 0;
 }
 
+.dexCameraDiv {
+  height: auto;
+  margin: -15px 0 10px 0;
+  width: 80%;
+}
+
+.dexCamera {
+  height:95px;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.dexMic {
+  height: 65px;
+  margin: 15px ;
+}
+
 .dexScreenLinner {
   height: 65%;
   width: 85%;
   background-color: #DFDFDF;
+  border: 2px solid black;
 }
 
 .dexScreen {

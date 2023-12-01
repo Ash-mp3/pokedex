@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
+import { PokeListContext } from "./PokeContext";
+import pokeMag from "../images/pokemon_mag.png";
 import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
-import pokeMag from "../images/pokemon_mag.png";
-import { PokeListContext } from "./PokeContext";
 import Select from "@mui/material/Select";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
