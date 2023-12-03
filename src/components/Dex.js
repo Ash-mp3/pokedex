@@ -4,6 +4,7 @@ import { PokeListContext } from "./PokeContext";
 import { Link } from "react-router-dom";
 import DexCam from "../images/dex_cam.png";
 import DexMic from "../images/dexMic.png";
+import FetchData from "./FetchData";
 const Dex = () => {
   const { state, dispatch } = useContext(PokeListContext);
   let currPoke = state.currentPoke;
@@ -11,29 +12,6 @@ const Dex = () => {
   let moveArr = [...currPoke.moves].slice(0, 4);
   // const [currMove, setCurrMove] = useState(null);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const fetchedMovePower = await GetMovePower(move);
-  //     setCurrMove(fetchedMovePower);
-  //   })();
-  // }, [currMove]);
-
-  const GetMovePower = async (move) => {
-    try {
-      const url = move.move;
-      console.log(url);
-      const response = await fetch(`https://pokeapi.co/api/v2/move/${url}/`);
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-      const moveDmg = data.power;
-      console.log(moveDmg);
-      return <p>loading...</p>;
-    } catch (error) {
-      console.error("Error fetching move data:", error);
-      return <p>loading...</p>;
-    }
-  };
   return (
     <div className="dex flex flex-col sm:w-4/5  md:w-3/4 lg:w-2/3 xl:w-3/5">
       <div className="dexCameraDiv flex justify-between">
@@ -43,7 +21,7 @@ const Dex = () => {
 
       <div className="dexScreenLinner flex justify-center items-center w-11/12 md:w-4/5 xl:w-3/4">
         <div className="dexScreen flex flex-col">
-          <div className="pokeInfo flex relative">
+          <div className="pokeInfo flex relative justify-center">
             <div className="imgDiv w-1/2 sm:w-2/5 flex justify-center  ">
               <img
                 src={pokeImg}
@@ -94,9 +72,21 @@ const Dex = () => {
               </div>
             </div>
           </div>
-          <div className="dexDivider"></div>
+          <div className="dexDivider">
+            <div className="dexDividerPoint"></div>
+            <div className="dexDividerPoint"></div>
+            <div className="dexDividerPoint"></div>
+            <div className="dexDividerPoint"></div>
+            <div className="whiteSpace"></div>
+            <div className="dexDividerPoint"></div>
+            <div className="dexDividerPoint"></div>
+            <div className="dexDividerPoint"></div>
+            <div className="dexDividerPoint"></div>
+          </div>
           <div className="pokeAttacks flex flex-col">
             {moveArr.map((move) => {
+              let moveUrl = move.move.url;
+
               return (
                 <div
                   key={move.move.name}
@@ -107,9 +97,7 @@ const Dex = () => {
                   </p>
                   <p className="text-xl sm:text-3xl self-center">/</p>
                   <p className="text-xl sm:text-3xl self-center">
-                    {/* <GetMovePower move={move.move.url} /> */}
-                    {/* {console.log(<GetMovePower move={move} />)} */}
-                    {/* {GetMovePower(move)} */}
+                    <FetchData url={moveUrl} />
                   </p>
                 </div>
               );
@@ -132,10 +120,9 @@ const Dex = () => {
                 type: "Set_Curr_Poke",
                 payload: state.currentPoke,
               });
-            // console.log(state.pokeList[state.currentPoke.id].name);
           }}
         >
-          <i class="fa-sharp fa-solid fa-play fa-rotate-180"></i>
+          <i className="fa-sharp fa-solid fa-play fa-rotate-180"></i>
         </Link>
         <Link
           to={`/Dex`}
@@ -154,7 +141,7 @@ const Dex = () => {
             }
           }}
         >
-          <i class="fa-sharp fa-solid fa-play "></i>
+          <i className="fa-sharp fa-solid fa-play "></i>
         </Link>
       </div>
     </div>

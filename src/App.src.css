@@ -185,14 +185,32 @@ header {
 
 .pokeNum {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .dexDivider {
-    height: 7px;
-    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    height: 6px;
+    background-color: #DFDFDF;
     width: 100%;
+    position: relative;
+    padding: 0 10px;
+}
 
+.whiteSpace {
+    background-color: inherit;
+    width: 95px;
+}
+
+.dexDividerPoint {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    border: 1px solid white;
+    background-color: #313129;
+    align-self: center;
+    
 }
 
 .pokeInfo {

@@ -9,6 +9,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 
+
 const Search = () => {
   const { state, dispatch } = useContext(PokeListContext);
   const [typeList, setTypeList] = useState([]);
@@ -32,6 +33,9 @@ const Search = () => {
       newCurrPokeList = newCurrPokeList.filter((poke) =>
         searchReg.test(poke.name)
       );
+      if (newCurrPokeList.length === 0) {
+        newCurrPokeList = 'x'
+      }
     }
     dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
   };
