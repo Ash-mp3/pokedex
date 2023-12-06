@@ -103,10 +103,29 @@ header {
     color: black;
 }
 
+.LeftEdgeDiv,
+.rightEdgeDiv {
+    border: 2px solid black;
+
+}
+
+.LeftEdgeDiv {
+    border-top-style: none;
+    border-right-style: none;
+}
+
+.rightEdgeDiv {
+    border-bottom-style: none;
+    border-left-style: none;
+}
+
 .pokeCard p {
     position: absolute;
     font-size: 25px;
-    left: 10px;
+}
+
+.pokeCard span {
+    font-size: 20px;
 }
 
 .pokeCard img {
@@ -133,7 +152,7 @@ header {
 
 .dexCameraDiv {
     height: auto;
-    margin: -15px 0 10px 0;
+    margin: 10px 0 5px 0;
     width: 80%;
 
 }
@@ -145,7 +164,7 @@ header {
 
 .dexMic {
     height: 65px;
-    margin: 15px;
+    margin: 15px 0;
 }
 
 .dexScreenLinner {
@@ -210,7 +229,7 @@ header {
     border: 1px solid white;
     background-color: #313129;
     align-self: center;
-    
+
 }
 
 .pokeInfo {

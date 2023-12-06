@@ -1,16 +1,24 @@
 import "../App.src.css";
-import { useContext, useState, useEffect } from "react";
-import { PokeListContext } from "./PokeContext";
+import { useContext, useRef, useEffect } from "react";
+import { PokeListContext } from "../utils/PokeContext";
 import { Link } from "react-router-dom";
 import DexCam from "../images/dex_cam.png";
 import DexMic from "../images/dexMic.png";
-import FetchData from "./FetchData";
+import FetchData from "../utils/FetchData";
 const Dex = () => {
   const { state, dispatch } = useContext(PokeListContext);
   let currPoke = state.currentPoke;
+  console.log(state);
   let pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${currPoke.id}.png`;
   let moveArr = [...currPoke.moves].slice(0, 4);
-  // const [currMove, setCurrMove] = useState(null);
+
+  useEffect(() => {
+    dispatch({
+      type: "Update_CanSearch",
+      payload: false,
+    });
+    console.log("ran");
+  }, []);
 
   return (
     <div className="dex flex flex-col sm:w-4/5  md:w-3/4 lg:w-2/3 xl:w-3/5">
@@ -105,7 +113,7 @@ const Dex = () => {
           </div>
         </div>
       </div>
-      <div className=" text-2xl flex gap-40 mt-8">
+      <div className=" text-2xl flex gap-40 mt-5">
         <Link
           to={`/Dex`}
           key={"next"}
@@ -113,16 +121,15 @@ const Dex = () => {
             if (state.currentPoke.id > 1) {
               dispatch({
                 type: "Set_Curr_Poke",
-                payload: state.pokeList[state.currentPoke.id - 2],
+                payload:
+                  state.currentPoke.id > 1
+                    ? state.pokeList[state.currentPoke.id - 2]
+                    : state.currentPoke,
               });
-            } else
-              dispatch({
-                type: "Set_Curr_Poke",
-                payload: state.currentPoke,
-              });
+            }
           }}
         >
-          <i className="fa-sharp fa-solid fa-play fa-rotate-180"></i>
+          <i className="fa-sharp fa-solid fa-left-long text-[50px]"></i>
         </Link>
         <Link
           to={`/Dex`}
@@ -131,17 +138,15 @@ const Dex = () => {
             if (state.currentPoke.id < 151) {
               dispatch({
                 type: "Set_Curr_Poke",
-                payload: state.pokeList[state.currentPoke.id],
-              });
-            } else {
-              dispatch({
-                type: "Set_Curr_Poke",
-                payload: state.currentPoke,
+                payload:
+                  state.currentPoke.id < 151
+                    ? state.pokeList[state.currentPoke.id]
+                    : state.currentPoke,
               });
             }
           }}
         >
-          <i className="fa-sharp fa-solid fa-play "></i>
+          <i className="fa-sharp fa-solid fa-right-long text-[50px]"></i>
         </Link>
       </div>
     </div>

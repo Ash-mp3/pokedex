@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { PokeListContext } from "./PokeContext";
+import { PokeListContext } from "../utils/PokeContext";
 import pokeMag from "../images/pokemon_mag.png";
 import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -8,7 +8,6 @@ import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-
 
 const Search = () => {
   const { state, dispatch } = useContext(PokeListContext);
@@ -34,7 +33,7 @@ const Search = () => {
         searchReg.test(poke.name)
       );
       if (newCurrPokeList.length === 0) {
-        newCurrPokeList = 'x'
+        newCurrPokeList = "x";
       }
     }
     dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
