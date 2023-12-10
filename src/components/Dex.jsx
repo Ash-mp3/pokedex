@@ -8,7 +8,6 @@ import FetchData from "../utils/FetchData";
 const Dex = () => {
   const { state, dispatch } = useContext(PokeListContext);
   let currPoke = state.currentPoke;
-  console.log(state);
   let pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${currPoke.id}.png`;
   let moveArr = [...currPoke.moves].slice(0, 4);
 
@@ -17,7 +16,6 @@ const Dex = () => {
       type: "Update_CanSearch",
       payload: false,
     });
-    console.log("ran");
   }, []);
 
   return (
@@ -85,7 +83,7 @@ const Dex = () => {
             <div className="dexDividerPoint"></div>
             <div className="dexDividerPoint"></div>
             <div className="dexDividerPoint"></div>
-            <div className="whiteSpace"></div>
+            <div className="bg-inherit w-[20px] md:w-[95px]"></div>
             <div className="dexDividerPoint"></div>
             <div className="dexDividerPoint"></div>
             <div className="dexDividerPoint"></div>

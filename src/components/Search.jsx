@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState , useRef} from "react";
 import { PokeListContext } from "../utils/PokeContext";
 import pokeMag from "../images/pokemon_mag.png";
 import { TextField } from "@mui/material";
@@ -66,10 +66,10 @@ const Search = () => {
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             setCurrSearch(e.target.value);
-            console.log(e.target.value);
           }
         }}
         InputProps={{
+          autoComplete: 'off',
           startAdornment: (
             <InputAdornment position="start">
               <img

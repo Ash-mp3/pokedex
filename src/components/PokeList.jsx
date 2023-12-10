@@ -6,19 +6,14 @@ import Alert from "@mui/material/Alert";
 import PikaGif from "../images/pika.gif";
 import Dpad from "../images/dpad.png";
 import DexMic from "../images/dexMic.png";
-import DexCam from "../images/dex_cam.png";
 
 const PokeList = () => {
   const { state, dispatch } = useContext(PokeListContext);
-  const pokeCardHover = useRef();
+  const AButtonRef = useRef();
+  const BButtonRef = useRef();
   const updateCurrentPoke = (pokeId) => {
     dispatch({ type: "Set_Curr_Poke", payload: pokeId });
   };
-
-  // const makeCardHover = () => {
-  //   console.log(pokeCardHover.current);
-  //   pokeCardHover.current.style.backgroundColor = "red";
-  // };
 
   useEffect(() => {
     dispatch({
@@ -44,7 +39,6 @@ const PokeList = () => {
                 onClick={() => {
                   updateCurrentPoke(poke);
                 }}
-                ref={pokeCardHover}
               >
                 <PokeCards poke={poke} />
               </Link>
@@ -71,10 +65,28 @@ const PokeList = () => {
       <div className=" w-28 hidden md:flex flex-col gap-10 gap-y-56 mb-20 mx-auto">
         <img src={DexMic} className="w-4/6 self-center" />
         <div className="w-full h-[100px] relative">
-          <div className="bg-black w-8 h-8 rounded-full text-center flex justify-center items-center text-white absolute right-4 top-4">
+          <div
+            ref={AButtonRef}
+            onMouseOver={() => {
+              AButtonRef.current.style.backgroundColor = "#343434";
+            }}
+            onMouseOut={() => {
+              AButtonRef.current.style.backgroundColor = "black";
+            }}
+            className="bg-black w-8 h-8 rounded-full text-center flex justify-center items-center text-white absolute right-4 top-4"
+          >
             A
           </div>
-          <div className="bg-black w-8 h-8 rounded-full text-center flex justify-center items-center text-white absolute left-4 bottom-4">
+          <div
+            ref={BButtonRef}
+            onMouseOver={() => {
+              BButtonRef.current.style.backgroundColor = "#343434";
+            }}
+            onMouseOut={() => {
+              BButtonRef.current.style.backgroundColor = "black";
+            }}
+            className="bg-black w-8 h-8 rounded-full text-center flex justify-center items-center text-white absolute left-4 bottom-4"
+          >
             B
           </div>
         </div>
