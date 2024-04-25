@@ -7,4 +7,8 @@ Welcome to my pokedex app!
   by using the the arrow buttons at the bottom. As well as with
   the random pokemon button in the header.
 
+- This app was devloped with React.js.
+- styled with vanilla and Tailwind.css.
+- The free PokeAPI was used for the Pokemon data.
+
 Thanks for stopping by!
