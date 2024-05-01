@@ -7,7 +7,7 @@ import Random from "./Random";
 
 function Header() {
 	const { state } = useContext(PokeListContext);
-
+    //if canSearch is true render search, if false render random button
 	return (
 		<header className="header w-full flex justify-between py-[10px] px-[10px] sm:px-[35px] gap-5">
 			<Link to="/pokedex">

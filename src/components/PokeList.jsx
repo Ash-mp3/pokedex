@@ -10,11 +10,12 @@ import DexMic from "../images/dexMic.png";
 const PokeList = () => {
 	const { state, dispatch } = useContext(PokeListContext);
 	const AButtonRef = useRef();
-	const BButtonRef = useRef();
+    const BButtonRef = useRef();
+    //update the current poke based on the id
 	const updateCurrentPoke = (pokeId) => {
 		dispatch({ type: "Set_Curr_Poke", payload: pokeId });
 	};
-
+    // set canSearch to true because we are in pokelist screen
 	useEffect(() => {
 		dispatch({
 			type: "Update_CanSearch",
@@ -28,15 +29,17 @@ const PokeList = () => {
 				<img src={DexMic} alt="mic" className="w-4/6 self-center" />
                 <img src={Dpad} alt="dpad" className="w-5/6" />
 			</div>
-			<div className="screenDiv w-11/12 md:w-4/5 xl:w-3/4">
+            <div className="screenDiv w-11/12 md:w-4/5 xl:w-3/4">
+                {/* conditional rendering pokeList based on if there are no matches */}
 				{state.currentPokeList !== "x" &&
 				state.currentPokeList.length !== 0 ? (
 					state.currentPokeList.map((poke) => {
+                        // when a poke is clicked, update the current poke, and route to dex
 						return (
 							<Link
 								className="pokeCard w-full md:w-auto md:grow"
 								to={`/Dex`}
-								key={poke.id}
+                                key={poke.id}
 								onClick={() => {
 									updateCurrentPoke(poke);
 								}}

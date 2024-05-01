@@ -15,15 +15,17 @@ const Search = () => {
 	const [currType, setCurrType] = useState("");
 	const [currSearch, setCurrSearch] = useState("");
 
-    
+    // memoize runSearch
 	const runSearch = useCallback(() => {
         let newCurrPokeList = state.pokeList;
+        //check if currType is set
 		if (currType) {
             const typeReg = new RegExp(`${currType}`);
 			newCurrPokeList = newCurrPokeList.filter((poke) => {
                 return poke.types.some((type) => typeReg.test(type.type.name));
 			});
-		}
+        }
+        // if currType is not set check if currSearch is set
 		if (currSearch) {
             const searchReg = new RegExp(`${currSearch}`, "i");
 			newCurrPokeList = newCurrPokeList.filter((poke) =>
@@ -32,14 +34,17 @@ const Search = () => {
 			if (newCurrPokeList.length === 0) {
                 newCurrPokeList = "x";
 			}
-		}
-		dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
+        }
+        // iupdate the state for currentPokeList
+        dispatch({ type: "Update_CurrentPokeList", payload: newCurrPokeList });
 	}, [currSearch, currType, state.pokeList, dispatch]);
     
+    // wehen currSearch or currType changes, runSearch is called
     useEffect(() => {
         runSearch();
     }, [runSearch]);
 
+    //get the type options from the api
 	useEffect(() => {
 		const getTypeOptions = async () => {
 			const res = await fetch("https://pokeapi.co/api/v2/generation/1/");
@@ -58,12 +63,14 @@ const Search = () => {
 			<TextField
 				label="Search Pokemon"
 				placeholder="Search"
-				type="search"
+                type="search"
+                //when the value is changed, update the state
 				onChange={(e) => {
 					if (e.target.value === "") {
 						setCurrSearch("");
 					}
-				}}
+                }}
+                // when enter is pressed, update the state
 				onKeyDown={(e) => {
 					if (e.key === "Enter") {
 						setCurrSearch(e.target.value);
@@ -88,7 +95,8 @@ const Search = () => {
 					<InputLabel id="typeInput">type</InputLabel>
 					<Select
 						value={currType}
-						label="type"
+                        label="type"
+                        //when the value is changed, update the state
 						onChange={(e) => {
 							setCurrType(e.target.value);
 						}}

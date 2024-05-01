@@ -12,7 +12,7 @@ const FetchData = ({ url }) => {
 			console.error("Error fetching move data:", error);
 		}
 	};
-
+    
 	FetchUrl(url);
 	if (power === null) {
 		return "N/A";

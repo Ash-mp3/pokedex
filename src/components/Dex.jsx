@@ -11,6 +11,7 @@ const Dex = () => {
 	let pokeImg = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${currPoke.id}.png`;
 	let moveArr = [...currPoke.moves].slice(0, 4);
 
+    // set canSearch to false because we are in dex screen
 	useEffect(() => {
 		dispatch({
 			type: "Update_CanSearch",
@@ -103,7 +104,6 @@ const Dex = () => {
 					<div className="pokeAttacks flex flex-col">
 						{moveArr.map((move) => {
 							let moveUrl = move.move.url;
-
 							return (
 								<div
 									key={move.move.name}
@@ -129,7 +129,8 @@ const Dex = () => {
 					to={`/Dex`}
 					key={"next"}
 					onClick={() => {
-						if (state.currentPoke.id > 1) {
+                        if (state.currentPoke.id > 1) {
+                            //set the state to next poke in the array
 							dispatch({
 								type: "Set_Curr_Poke",
 								payload:
@@ -148,7 +149,8 @@ const Dex = () => {
 					to={`/Dex`}
 					key={"prev"}
 					onClick={() => {
-						if (state.currentPoke.id < 151) {
+                        if (state.currentPoke.id < 151) {
+                             //set the state to prev poke in the array
 							dispatch({
 								type: "Set_Curr_Poke",
 								payload:

@@ -5,6 +5,7 @@ import { PokeListContext } from "../utils/PokeContext";
 const Random = () => {
 	const { state, dispatch } = useContext(PokeListContext);
 
+    // function to get random pokemon from the list
 	const getRandomPoke = () => {
 		const randomNum = Math.floor(Math.random() * 150) + 0;
 		const randomPoke = state.pokeList[randomNum];
